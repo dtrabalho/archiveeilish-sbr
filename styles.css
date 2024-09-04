@@ -1,177 +1,68 @@
+/* styles.css */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif; /* Fonte padrão do corpo */
-    background-color: #0B1A36; /* Fundo azul escuro */
-    color: #900C3F; /* Texto vermelho escuro */
+    background-color: #121212; /* Azul escuro para o fundo */
+    color: #ffffff; /* Cor do texto branca */
+    font-family: 'Arial', sans-serif; /* Fonte padrão */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
+    margin: 0;
+    overflow: hidden; /* Para evitar barra de rolagem */
+    position: relative;
 }
 
-h1.dark-red {
-    font-family: 'Montserrat', sans-serif; /* Fonte Montserrat para o título */
-    color: #900C3F; /* Título em vermelho escuro */
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-#openDrawerBtn {
-    position: absolute;
-    left: 10px;
-    top: 20px;
-    background-color: #900C3F; /* Botão vermelho escuro */
-    color: #000000; /* Texto do botão em preto */
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.drawer {
+/* Aumentando o tamanho das estrelas no fundo */
+body::before {
+    content: '';
     position: absolute;
     top: 0;
-    left: -250px; /* Oculto fora da tela inicialmente */
-    width: 250px;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-color: #1B263B; /* Painel azul marinho */
-    overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-    transition: left 0.3s ease;
-}
-
-.drawer.open {
-    left: 0; /* Quando aberto, a gaveta desliza para dentro */
-}
-
-.text-panel {
-    padding: 20px;
-    color: #900C3F; /* Texto da gaveta em vermelho escuro */
-}
-
-.text-panel strong {
-    color: #900C3F; /* Palavras-chave em vermelho escuro */
+    background-image: radial-gradient(circle, #1e90ff 1.5px, transparent 1.5px);
+    background-size: 25px 25px; /* Tamanho e espaçamento das estrelas */
+    opacity: 0.4; /* Para tornar as estrelas menos chamativas */
+    z-index: 1;
 }
 
 .container {
-    width: 40%; /* Reduzindo o tamanho para centralizar */
-    max-width: 500px; /* Ajustando o tamanho total */
-    margin: 0 auto; /* Centraliza o painel */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.panel {
-    width: 100%; /* Ajusta ao tamanho do container */
-    background-color: #1B263B; /* Azul marinho para o painel */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer; /* Torna o painel clicável */
-}
-
-.panel img {
+    text-align: center; /* Centralizar conteúdo */
+    background-color: #1e1e1e; /* Um tom de azul escuro um pouco mais claro para contraste */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px; /* Para limitar a largura do contêiner */
     width: 100%;
-    height: auto;
-    display: block;
+    position: relative;
+    z-index: 2; /* Para estar acima do fundo de estrelas */
 }
 
-.panel:hover {
-    transform: scale(1.05) rotate(2deg); /* Efeito de zoom e rotação ao passar o mouse */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 30px rgba(144, 12, 36, 0.8); /* Aumenta a sombra e o brilho vermelho escuro */
+h1 {
+    color: #d32f2f; /* Vermelho para o título */
+    font-size: 2.5rem;
+    text-align: center; /* Alinhado ao centro */
 }
 
-#closeDrawerBtn {
-    background-color: #900C3F; /* Botão vermelho escuro */
-    color: #000000; /* Texto do botão em preto */
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    text-align: center; /* Centraliza o botão */
+}
+
+button {
+    background-color: #d32f2f; /* Vermelho para o botão */
+    color: #ffffff;
     border: none;
-    padding: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-.message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #900C3F; /* Fundo vermelho escuro */
-    color: #FFFFFF; /* Texto branco */
-    padding: 15px 30px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: none; /* Inicialmente oculto */
-    z-index: 1000; /* Garante que a mensagem fique acima dos outros elementos */
-    font-family: Arial, sans-serif; /* Fonte padrão */
-}
-.message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #900C3F; /* Fundo vermelho escuro */
-    color: #FFFFFF; /* Texto branco */
-    padding: 15px 30px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: none; /* Inicialmente oculto */
-    z-index: 1000; /* Garante que a mensagem fique acima dos outros elementos */
-    font-family: Arial, sans-serif; /* Fonte padrão */
-    text-align: center; /* Centraliza o texto */
-}
-
-.message button {
-    background-color: #FFFFFF; /* Fundo branco para o botão */
-    color: #900C3F; /* Texto vermelho escuro */
-    border: none;
-    border-radius: 5px;
     padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-family: Arial, sans-serif; /* Fonte do botão */
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.message button:hover {
-    background-color: #F4F4F4; /* Fundo cinza claro ao passar o mouse */
-}
-.message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #900C3F; /* Fundo vermelho escuro */
-    color: #FFFFFF; /* Texto branco */
-    padding: 15px 30px;
+    font-size: 1rem;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: none; /* Inicialmente oculto */
-    z-index: 1000; /* Garante que a mensagem fique acima dos outros elementos */
-    font-family: Arial, sans-serif; /* Fonte padrão */
-    text-align: center; /* Centraliza o texto */
-}
-
-.message p {
-    margin: 0;
-    padding: 0;
-}
-
-.message button {
-    background-color: #FFFFFF; /* Fundo branco para o botão */
-    color: #900C3F; /* Texto vermelho escuro */
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin-top: 15px; /* Espaço entre o texto e o botão */
     cursor: pointer;
-    font-family: Arial, sans-serif; /* Fonte do botão */
-    font-size: 16px;
-    transition: background-color 0.3s ease;
 }
 
-.message button:hover {
-    background-color: #F4F4F4; /* Fundo cinza claro ao passar o mouse */
+button:hover {
+    background-color: #c62828; /* Tom mais escuro de vermelho no hover */
 }

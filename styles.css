@@ -1,31 +1,24 @@
 /* styles.css */
 body {
-    background-color: #121212; /* Azul escuro para o fundo */
+    background: linear-gradient(to top, #060A0D, #0E3D59, #123C73); /* Gradiente de fundo */
     color: #ffffff; /* Cor do texto branca */
     font-family: 'Arial', sans-serif; /* Fonte padrão */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
     overflow: hidden; /* Para evitar barra de rolagem */
     position: relative;
 }
 
-/* Aumentando o tamanho das estrelas no fundo */
+/* Remover estrelas do fundo */
 body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle, #1e90ff 1.5px, transparent 1.5px);
-    background-size: 25px 25px; /* Tamanho e espaçamento das estrelas */
-    opacity: 0.4; /* Para tornar as estrelas menos chamativas */
-    z-index: 1;
+    display: none;
 }
 
+/* Estilos para o contêiner principal */
 .container {
     text-align: center; /* Centralizar conteúdo */
     background-color: #1e1e1e; /* Um tom de azul escuro um pouco mais claro para contraste */
@@ -38,31 +31,45 @@ body::before {
     z-index: 2; /* Para estar acima do fundo de estrelas */
 }
 
+/* Estilo do título */
 h1 {
     color: #d32f2f; /* Vermelho para o título */
     font-size: 2.5rem;
     text-align: center; /* Alinhado ao centro */
+    margin: 0;
 }
 
+/* Estilo dos parágrafos */
 p {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-.button-container {
-    text-align: center; /* Centraliza o botão */
-}
-
-button {
+/* Estilo do botão "Entre na Comunidade" */
+.join-button {
     background-color: #d32f2f; /* Vermelho para o botão */
     color: #ffffff;
     border: none;
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
 }
 
-button:hover {
+.join-button:hover {
     background-color: #c62828; /* Tom mais escuro de vermelho no hover */
+}
+
+/* Estilo para a imagem no canto inferior direito */
+.image-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.image-container img {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
 }
